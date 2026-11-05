@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversario, Mi Amor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="slideshow-container">
+        <!-- Contenedor de la imagen de fondo -->
+        <div class="slide-background">
+            <img id="slide-img" src="" alt="Nuestra historia de amor">
+        </div>
+
+        <!-- Capa oscura para resaltar el texto -->
+        <div class="overlay"></div>
+
+        <!-- Contenedor de textos emotivos -->
+        <div class="content-container">
+            <h1 id="slide-title"></h1>
+            <p id="slide-text"></p>
+        </div>
+
+        <!-- Controles de navegación manual -->
+        <button id="prev-btn" class="nav-btn">&#10094;</button>
+        <button id="next-btn" class="nav-btn">&#10095;</button>
+    </div>
+
+    <!-- REPRODUCTOR DE YOUTUBE OCULTO -->
+    <div id="youtube-audio-container" style="display: none;">
+        <div id="player"></div>
+    </div>
+
+    <!-- Script de la API de YouTube -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>

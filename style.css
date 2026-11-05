@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0b0b;
+    color: #fff;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Fondo negro para rellenar el espacio sobrante */
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* EFECTO DE FONDO DIFUMINADO (Opcional para rellenar los bordes vacíos con la misma foto) */
+.slide-background::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background-image: var(--bg-blur);
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.4);
+    z-index: 1;
+}
+
+.slide-background img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Muestra la imagen completa en su tamaño y proporción real */
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    transition: opacity 1s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 10%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.5) 100%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.content-container {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.content-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    color: #ffb6c1;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+}
+
+.content-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.9);
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#prev-btn { left: 20px; }
+#next-btn { right: 20px; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .content-container h1 { font-size: 1.8rem; }
+    .content-container p { font-size: 1rem; }
+    .nav-btn { font-size: 1.5rem; padding: 5px 12px; }
+}
